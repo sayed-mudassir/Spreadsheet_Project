@@ -1,0 +1,138 @@
+body{
+    margin: 0;
+}
+.container{
+    margin: 15px 0;   
+    height: 80vh;
+    width: 150vw;
+    display: grid;
+    grid-template-columns: 40px auto;
+    grid-template-rows: 30px auto;
+    overflow-x: scroll;
+    border:1px solid #c0c0c0;
+    box-sizing: border-box;
+}
+.plate{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: grey;
+}
+.head-row{
+    /* grid-column: 1/3;    */
+    background-color: white;
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+.head-row .col-head{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    border: 1px solid #c0c0c0;
+}
+
+.body{
+    /* background-color: orange; */
+}
+.sno{
+    background-color: white;
+    position: sticky;
+    left: 0;
+}
+.sno .sno-cell{
+    height: 20px;
+    border: 1px solid #c0c0c0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row{
+    display: flex;
+}
+.cell{
+    border: 1px solid #c0c0c0;
+    width: 150px;
+    height: 20px;
+    overflow: hidden;
+    font-size: 16px;
+
+}
+.cell:focus{
+    border: 1px solid blue;
+    /* border-radius: 5; */
+    outline: none;
+    /* overflow: scroll; */
+}
+.options{
+    background-color: #f8fbfd;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form-container{
+    padding: 10px;
+    background-color: #edf2fa;
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    gap: 10px;
+}
+.fr-aic{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+input[type="checkbox"],input[type="radio"] {
+    display: none;
+} 
+input[type="color"]{
+    display: none;
+    height: 0;
+    width: 0;
+    border: none;
+    outline: none;
+}
+input[type="checkbox"]:checked+label ,input[type="radio"]:checked+label{
+ background-color: #d3e2fd;
+}
+label{
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.box{
+    margin-top: 10px;
+    width: 80vw;
+    margin: auto;
+}
+.box .selected-cell{
+    margin-top: 5px;
+    background-color: #d3e2fd;
+    padding: 10px;
+    border-radius: 5px;
+    width: 40px;
+    text-align: center;
+
+}
+.box input{
+    margin-top: 5px;
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 15px;
+    border-width: .1px;
+}
+.active-cell{
+    border: transparent;
+    position: relative;
+    z-index: 10;
+    outline: 2px solid #0957d0 ;
+    border-radius: 1px ;
+}
