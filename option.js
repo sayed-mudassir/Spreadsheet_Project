@@ -30,6 +30,14 @@ function applyCellInfoToForm(){
         form.reset();
     }
 }
+function onChangeInnerText(e){
+    if(state[selectedcell.id]){
+        state[selectedcell.id].innerText = selectedcell.innerText;
+    }
+    else{
+        state[selectedcell.id] = {...defaultState,innerText: selectedcell.innerText};
+    }
+}
 
 function onFocusCell(e){
     if(selectedcell){

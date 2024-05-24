@@ -25,6 +25,7 @@ for(let i = 1; i<=row; i++){
         cell.className = "cell";
         cell.contentEditable = true;
         cell.id = `${String.fromCharCode(j+64)}${i}`;
+        cell.addEventListener("input",onChangeInnerText)
         cell.addEventListener("focus",onFocusCell);
         row.appendChild(cell);
     }
