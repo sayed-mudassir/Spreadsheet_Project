@@ -13,9 +13,24 @@ download.addEventListener("click", ()=>{
     link.click();
 });
 
-function loadJson(jsonData){
-    
-}
+function loadJson(fileData){
+     // Clear existing data
+    for(let key in fileData){
+        let Changedcell = document.getElementById(key);
+        // Changedcell.style.backgroundColor = black;
+        debugger;
+        Changedcell.innerText = fileData[key].innerText;
+        Changedcell.style.fontFamily = fileData[key].fontFaimly;
+        Changedcell.style.fontSize = fileData[key].fontSize + "px";
+        Changedcell.style.fontWeight = fileData[key].isBold ? "bold" : "normal";
+        Changedcell.style.fontStyle = fileData[key].isItalic ? "italic" : "normal";
+        Changedcell.style.textDecoration = fileData[key].isUnderline ? "underline" : "normal";
+        Changedcell.style.textAlign = fileData[key].align;
+        Changedcell.style.color = fileData[key].textColor;
+        Changedcell.style.backgroundColor = fileData[key].backgroundColor;
+    }
+ }
+
 
 upload.addEventListener("change", (e)=>{
     let file = e.target.files[0];
