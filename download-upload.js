@@ -13,12 +13,27 @@ download.addEventListener("click", ()=>{
     link.click();
 });
 
+function updateCellInfoToForm(){
+    for(let key in state){
+        const data = state[key];
+        for(let key in data){
+            if(form[key].type === "checkbox"){
+                form[key].checked = data[key];
+            }
+            else{
+                form[key].value = data[key];
+            }
+        }
+    }
+    // else{
+    //     form.reset();
+    // }
+}
+
 function loadJson(fileData){
      // Clear existing data
     for(let key in fileData){
         let Changedcell = document.getElementById(key);
-        // Changedcell.style.backgroundColor = black;
-        debugger;
         Changedcell.innerText = fileData[key].innerText;
         Changedcell.style.fontFamily = fileData[key].fontFaimly;
         Changedcell.style.fontSize = fileData[key].fontSize + "px";
@@ -28,7 +43,26 @@ function loadJson(fileData){
         Changedcell.style.textAlign = fileData[key].align;
         Changedcell.style.color = fileData[key].textColor;
         Changedcell.style.backgroundColor = fileData[key].backgroundColor;
+        state[Changedcell.id] = fileData[key];
     }
+    // for(let k in state){
+    //     if(state[k]){
+    //         const data = state[k];
+    //         for(let key in data){
+    //             debugger;
+    //             if(form[key].type === "checkbox"){
+    //                 form[key].checked = data[key];
+    //             }
+    //             else{
+    //                 form[key].value = data[key];
+    //             }
+    //         }
+    //     }
+    //     else{
+    //         form.reset();
+    //     }
+    // }
+    
  }
 
 
@@ -41,7 +75,6 @@ upload.addEventListener("change", (e)=>{
     let fileReader = new FileReader();
     fileReader.onload = function (e){
         let fileData = JSON.parse(e.target.result);
-        console.log(fileData);
         loadJson(fileData);
     }
 
